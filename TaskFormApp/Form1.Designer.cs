@@ -43,6 +43,7 @@ namespace TaskFormApp
             this.BtnReadFile.TabIndex = 0;
             this.BtnReadFile.Text = "Dosya Oku";
             this.BtnReadFile.UseVisualStyleBackColor = true;
+            this.BtnReadFile.Click += new System.EventHandler(this.BtnReadFile_Click);
             // 
             // richTextBox1
             // 
@@ -60,6 +61,7 @@ namespace TaskFormApp
             this.BtnCounter.TabIndex = 2;
             this.BtnCounter.Text = "Sayaç Arttır";
             this.BtnCounter.UseVisualStyleBackColor = true;
+            this.BtnCounter.Click += new System.EventHandler(this.BtnCounter_Click);
             // 
             // textBoxCounter
             // 
