@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskFormApp", "TaskFormApp\TaskFormApp.csproj", "{237566D3-FFFB-489D-8DC5-F5FD3C90BEE3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{237566D3-FFFB-489D-8DC5-F5FD3C90BEE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{237566D3-FFFB-489D-8DC5-F5FD3C90BEE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{237566D3-FFFB-489D-8DC5-F5FD3C90BEE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{237566D3-FFFB-489D-8DC5-F5FD3C90BEE3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47ACAE36-54B4-442D-9C1C-EE4BE1A3E9ED}
+	EndGlobalSection
+EndGlobal
