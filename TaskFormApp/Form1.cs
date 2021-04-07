@@ -20,9 +20,9 @@ namespace TaskFormApp
             InitializeComponent();
         }
 
-        private void BtnReadFile_Click(object sender, EventArgs e)
+        private async void BtnReadFile_Click(object sender, EventArgs e)
         {
-            string data = ReadFile();
+            string data = await ReadFileAsync(); // alt satira gecmeden dataya ihtiyac var o yuzden await kullanildi.
 
             richTextBox1.Text = data;
         }
@@ -42,6 +42,28 @@ namespace TaskFormApp
             }
 
             return data;
+        }
+
+        // asenkron yapi kullanildiginda thread uzerinde asla bloklanma olmaz.
+        // asenkron method geriye bi' sey dondurmeyecekse task ifadesi kullanılır. bu normal methodlarda void'e denk gelir.
+        // deger dondurecekse task'in generic ifadesi icerisinde deger tipi belirtilir. 
+
+        private async Task<string> ReadFileAsync() // asenkron method cagrimi gercekleseceginden dolayı private sonrasi async ifadesi kullanildi.
+        {
+            string data = string.Empty;
+            using (StreamReader s = new StreamReader("C:/Users/tahay/source/repos/AsynchronousMulti-Threading/TaskFormApp/dosya.txt")) // using icerisinde kullandik cunku, kullanimdan sonra bellekten silinsin.
+            {
+                
+                Task<string> mytask = s.ReadToEndAsync();  // task string daha donecegine dair taahhut ediyor. hemen degil ama.
+
+                // bu arada ReadToEndAsync() methodundan bagimsiz her is yapilabilir. asenkronun kullanmanin mantigi budur zaten.
+                // taahut ReadToEndAsync() 'de baslar taa ki await mytask'e kadar devam eder.
+
+                await Task.Delay(5000);
+
+                data = await mytask; // taahhut ettigin datayi don, data'ya aktar.
+                return data;
+            }
         }
     }
 }
