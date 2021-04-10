@@ -33,6 +33,7 @@ namespace TaskFormApp
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.BtnCounter = new System.Windows.Forms.Button();
             this.textBoxCounter = new System.Windows.Forms.TextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // BtnReadFile
@@ -70,11 +71,20 @@ namespace TaskFormApp
             this.textBoxCounter.Size = new System.Drawing.Size(125, 27);
             this.textBoxCounter.TabIndex = 3;
             // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(364, 129);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(371, 279);
+            this.richTextBox2.TabIndex = 4;
+            this.richTextBox2.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.textBoxCounter);
             this.Controls.Add(this.BtnCounter);
             this.Controls.Add(this.richTextBox1);
@@ -92,6 +102,7 @@ namespace TaskFormApp
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button BtnCounter;
         private System.Windows.Forms.TextBox textBoxCounter;
+        private System.Windows.Forms.RichTextBox richTextBox2;
     }
 }
 

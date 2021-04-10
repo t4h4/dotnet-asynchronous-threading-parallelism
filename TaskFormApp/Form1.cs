@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,7 +23,12 @@ namespace TaskFormApp
 
         private async void BtnReadFile_Click(object sender, EventArgs e)
         {
-            string data = await ReadFileAsync(); // alt satira gecmeden dataya ihtiyac var o yuzden await kullanildi.
+            string data = String.Empty;
+            Task<String> okuma = ReadFileAsync(); // await'e sonra alacagiz o sirada asagidaki islemde es zamanli olarak yapilacak.
+
+            richTextBox2.Text = await new HttpClient().GetStringAsync("https://www.google.com");
+
+            data = await okuma; // await'e simdi aldik. 
 
             richTextBox1.Text = data;
         }
