@@ -24,7 +24,7 @@ namespace TaskFormApp
         private async void BtnReadFile_Click(object sender, EventArgs e)
         {
             string data = String.Empty;
-            Task<String> okuma = ReadFileAsync(); // await'e sonra alacagiz o sirada asagidaki islemde es zamanli olarak yapilacak.
+            Task<String> okuma = ReadFileAsync2(); // await'e sonra alacagiz o sirada asagidaki islemde es zamanli olarak yapilacak.
 
             richTextBox2.Text = await new HttpClient().GetStringAsync("https://www.google.com");
 
@@ -70,6 +70,13 @@ namespace TaskFormApp
                 data = await mytask; // taahhut ettigin datayi don, data'ya aktar.
                 return data;
             }
+        }
+
+        private Task<string> ReadFileAsync2() // hemen arada islem yapmadan doneceksek async kullanmamiza gerek yok. 
+        {
+            StreamReader s = new StreamReader("C:/Users/tahay/source/repos/AsynchronousMulti-Threading/TaskFormApp/dosya.txt");
+            return s.ReadToEndAsync();
+            
         }
     }
 }
