@@ -20,11 +20,11 @@ namespace TaskConsoleApp
             Console.WriteLine("Main thread: " + Thread.CurrentThread.ManagedThreadId);
             List<string> urlsList = new List<string>()
             {
-                "https://www.google.com",
                 "https://www.microsoft.com",
                 "https://www.amazon.com",
                 "https://www.facebook.com",
                 "https://www.oracle.com",
+                "https://www.google.com",
                 "https://www.t4h4.net"
             };
 
@@ -35,16 +35,9 @@ namespace TaskConsoleApp
                 taskList.Add(GetContentAsync(x));
             });
 
-            var contents = Task.WhenAll(taskList.ToArray()); // WhenAll methodu parametre olarak task array alir, array icindeki task'lerin hepsi tamamlayincaya kadar bekler. 
+            var FirstData = await Task.WhenAny(taskList); // Task Array'den ilk hangisi tamamlanirsa onu doner. hizli tamamlanani doner.
+            Console.WriteLine($"{FirstData.Result.Site} - {FirstData.Result.Len}");
 
-            Console.WriteLine("WhenAll method sonrasi baska isler yapildi.");
-
-            var data = await contents;
-
-            data.ToList().ForEach(x =>
-            {
-                Console.WriteLine($"{x.Site} boyut:{x.Len}");
-            });
         }
 
         public static async Task<Content> GetContentAsync(string url) // asenkron methodlar geriye task doner. donenin tipi Content.
