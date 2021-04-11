@@ -10,15 +10,12 @@ namespace TaskConsoleApp
         {
             Console.WriteLine("Hello World!");
 
-            var mytask = new HttpClient().GetStringAsync("https://www.google.com").ContinueWith
-                ((data) => // data google'dan gelen veri. 
-            {
-                Console.WriteLine("data uzunluk: " + data.Result.Length);
-            });
-
+            var mytask = new HttpClient().GetStringAsync("https://www.google.com");
+               
             Console.WriteLine("arada yapilacak isler");
 
-            await mytask;
+            var data = await mytask;
+            Console.WriteLine("data uzunluk: " + data.Length);
         }
     }
 }
