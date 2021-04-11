@@ -35,8 +35,13 @@ namespace TaskConsoleApp
                 taskList.Add(GetContentAsync(x));
             });
 
-            var FirstData = await Task.WhenAny(taskList); // Task Array'den ilk hangisi tamamlanirsa onu doner. hizli tamamlanani doner.
-            Console.WriteLine($"{FirstData.Result.Site} - {FirstData.Result.Len}");
+            Console.WriteLine("WaitAll methodundan once");
+            // WhenAll'dan farki bu method ana thread'i bloklar. senkron gibi calisir. surede belirtildigi kadar gorevler calisir. surede tamamlanirsa true, tamamlanmazsa false'da donebilir.    
+            bool result = Task.WaitAll(taskList.ToArray(), 3000); // sure istersek kullanmayiz. Task.WaitAll(taskList.ToArray()); seklinde kullanabilirdik.
+            Console.WriteLine("300 ms'de geldi mi?: " + result);
+            Console.WriteLine("WaitAll methodundan sonra");
+
+
 
         }
 
