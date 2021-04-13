@@ -14,7 +14,7 @@ namespace TaskResultConsoleApp
         {
             var task = new HttpClient().GetStringAsync("http://www.google.com");
 
-            return task.Result;
+            return task.Result; // senkron bi' metodun icinden asenkron sonuc alabildik.
         }
     }
 }
