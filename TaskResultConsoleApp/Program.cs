@@ -14,9 +14,9 @@ namespace TaskResultConsoleApp
             await GetData();
         }
 
-        public static Task<int> GetData()
+        public static ValueTask<int> GetData()
         {
-            return Task.FromResult(CacheData);
+            return new ValueTask<int>(CacheData);
         }
     }
 }
