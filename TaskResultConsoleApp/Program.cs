@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 
 namespace TaskResultConsoleApp
 {
@@ -6,7 +7,14 @@ namespace TaskResultConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine(GetData());
+        }
+
+        public static string GetData()
+        {
+            var task = new HttpClient().GetStringAsync("http://www.google.com");
+
+            return task.Result;
         }
     }
 }
