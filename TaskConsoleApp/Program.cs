@@ -7,58 +7,33 @@ using System.Threading.Tasks;
 
 namespace TaskConsoleApp
 {
-    public class Content
+    public class Status
     {
-        public string Site { get; set; }
-        public int Len { get; set; }
+        public int threadId { get; set; }
+        public DateTime date { get; set; }
     }
 
     internal class Program
     {
         private async static Task Main(string[] args)
         {
-            Console.WriteLine("Main thread: " + Thread.CurrentThread.ManagedThreadId);
-            List<string> urlsList = new List<string>()
+            var myTask = Task.Factory.StartNew((Obj) =>
             {
-                "https://www.microsoft.com",
-                "https://www.amazon.com",
-                "https://www.facebook.com",
-                "https://www.oracle.com",
-                "https://www.google.com",
-                "https://www.t4h4.net"
-            };
+                Console.WriteLine("myTask calisti.");
+                var status = Obj as Status; // status'e cevir, ceviremezsen null donder. 
 
-            List<Task<Content>> taskList = new List<Task<Content>>();
+                status.threadId = Thread.CurrentThread.ManagedThreadId;
+                status.date = DateTime.Now;
 
-            urlsList.ToList().ForEach(x =>
-            {
-                taskList.Add(GetContentAsync(x));
-            });
+            }, new Status());
 
-            var contents = await Task.WhenAll(taskList.ToArray());
+            await myTask;
 
-            contents.ToList().ForEach(x =>
-            {
-                Console.WriteLine(x.Site);
-            });
+            Status s = myTask.AsyncState as Status;
 
-
-
-        }
-
-        public static async Task<Content> GetContentAsync(string url) // asenkron methodlar geriye task doner. donenin tipi Content.
-        {
-            Content c = new Content();
-            var data = await new HttpClient().GetStringAsync(url);
-
-            await Task.Delay(5000); // asenkron bir 5000 ms gecikme olusturuluyor. Thread.Sleep() ise guncel thread'i ms cinsinden askiya alir, senkron gibi olur, bloklar.
-
-            c.Site = url;
-            c.Len = data.Length;
-
-            Console.WriteLine("GetContentAsync thread: " + Thread.CurrentThread.ManagedThreadId); // o an calisan thread id'si yazdiriliyor.
-
-            return c;
-        }
+            Console.WriteLine(s.date);
+            Console.WriteLine(s.threadId);
+           
+        }    
     }
 }
