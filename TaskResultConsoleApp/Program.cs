@@ -6,18 +6,17 @@ namespace TaskResultConsoleApp
 {
     class Program
     {
+
+        public static int CacheData { get; set; } = 150;
+
         private async static Task Main(string[] args)
         {
-            Task mytask = Task.Run(() =>
-            {
-                throw new ArgumentException("bir hata geldi.");
-            });
-
-            await mytask;
-
-            Console.WriteLine("islem bitti");
-          
+            await GetData();
         }
 
+        public static Task<int> GetData()
+        {
+            return Task.FromResult(CacheData);
+        }
     }
 }
