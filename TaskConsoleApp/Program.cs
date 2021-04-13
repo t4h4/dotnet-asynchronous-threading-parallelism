@@ -35,10 +35,12 @@ namespace TaskConsoleApp
                 taskList.Add(GetContentAsync(x));
             });
 
-            // WaitAny bloklayan bi' method. 
-            var firstTaskIndex = Task.WaitAny(taskList.ToArray()); // int deger donuyor var'a geliyor. 
+            var contents = await Task.WhenAll(taskList.ToArray());
 
-            Console.WriteLine($"{taskList[firstTaskIndex].Result.Site} - {taskList[firstTaskIndex].Result.Len}");
+            contents.ToList().ForEach(x =>
+            {
+                Console.WriteLine(x.Site);
+            });
 
 
 
@@ -48,6 +50,8 @@ namespace TaskConsoleApp
         {
             Content c = new Content();
             var data = await new HttpClient().GetStringAsync(url);
+
+            await Task.Delay(5000); // asenkron bir 5000 ms gecikme olusturuluyor. Thread.Sleep() ise guncel thread'i ms cinsinden askiya alir, senkron gibi olur, bloklar.
 
             c.Site = url;
             c.Len = data.Length;
