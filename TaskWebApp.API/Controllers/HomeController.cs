@@ -29,14 +29,14 @@ namespace TaskWebApp.API.Controllers
             {
                 _logger.LogInformation("istek basladi");
 
-                await Task.Delay(5000, token);
-
-                var mytask = new HttpClient().GetStringAsync("https://www.google.com");
-                //
-                var data = await mytask;
+                Enumerable.Range(1, 10).ToList().ForEach(x =>
+                {
+                    Thread.Sleep(1000);
+                    token.ThrowIfCancellationRequested(); // istegin kullanici tarafindan iptal edilip edilmedigine bakiyor. 
+                });
 
                 _logger.LogInformation("istek bitti");
-                return Ok(data);
+                return Ok("isler bitti");
             }
             catch (Exception ex)
             {
