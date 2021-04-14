@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterlockedParallelForEachA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceConditionForEachApp", "RaceConditionForEachApp\RaceConditionForEachApp.csproj", "{FE95D624-7DC3-4B16-96A1-9D7B92CA22D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelForApp", "ParallelForApp\ParallelForApp.csproj", "{90E000DF-13C1-4C1D-9F62-DF3A5510BE1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{FE95D624-7DC3-4B16-96A1-9D7B92CA22D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE95D624-7DC3-4B16-96A1-9D7B92CA22D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE95D624-7DC3-4B16-96A1-9D7B92CA22D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90E000DF-13C1-4C1D-9F62-DF3A5510BE1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90E000DF-13C1-4C1D-9F62-DF3A5510BE1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90E000DF-13C1-4C1D-9F62-DF3A5510BE1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90E000DF-13C1-4C1D-9F62-DF3A5510BE1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
