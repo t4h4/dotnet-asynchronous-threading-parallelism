@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskWebApp.API", "TaskWebAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskConsoleApp", "TaskConsoleApp\TaskConsoleApp.csproj", "{CA9EFB79-4790-4D93-93A7-D50890B90285}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskThreadApp", "TaskThreadApp\TaskThreadApp.csproj", "{FAC5B46B-7AE0-4DEE-BA15-7442E83EB677}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskThreadApp", "TaskThreadApp\TaskThreadApp.csproj", "{FAC5B46B-7AE0-4DEE-BA15-7442E83EB677}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskCancellationFormApp", "TaskCancellationFormApp\TaskCancellationFormApp.csproj", "{591CF573-6478-405B-A30E-8016C9C655AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskCancellationFormApp", "TaskCancellationFormApp\TaskCancellationFormApp.csproj", "{591CF573-6478-405B-A30E-8016C9C655AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskResultConsoleApp", "TaskResultConsoleApp\TaskResultConsoleApp.csproj", "{8BEE1CDC-9727-4D5A-855B-85D61D9D7FD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskResultConsoleApp", "TaskResultConsoleApp\TaskResultConsoleApp.csproj", "{8BEE1CDC-9727-4D5A-855B-85D61D9D7FD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForEachParallelApp", "ForEachParallelApp\ForEachParallelApp.csproj", "{C9414C6A-FB3C-4BA5-95AD-9330641CEACF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{8BEE1CDC-9727-4D5A-855B-85D61D9D7FD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BEE1CDC-9727-4D5A-855B-85D61D9D7FD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BEE1CDC-9727-4D5A-855B-85D61D9D7FD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9414C6A-FB3C-4BA5-95AD-9330641CEACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9414C6A-FB3C-4BA5-95AD-9330641CEACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9414C6A-FB3C-4BA5-95AD-9330641CEACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9414C6A-FB3C-4BA5-95AD-9330641CEACF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
