@@ -10,7 +10,11 @@ namespace PLINQApp
         static void Main(string[] args)
         {
             AdventureWorks2017Context context = new AdventureWorks2017Context();
-            context.Products.Take(10).ToList().ForEach(x => // 10 tanesini al
+
+            var product = (from p in context.Products.AsParallel()
+                           where p.ListPrice > 10M
+                           select p).Take(10);
+            product.ForAll(x =>
            {
                Console.WriteLine(x.Name);
            });
